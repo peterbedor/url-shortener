@@ -21,6 +21,14 @@ class User extends Authenticatable
 		'remember_token'
 	];
 
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function urls()
+	{
+		return $this->hasMany(Url::class);
+	}
+
 	public static function createUser(array $data): User
 	{
 		$user = new User();
